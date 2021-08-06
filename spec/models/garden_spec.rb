@@ -7,7 +7,7 @@ RSpec.describe Garden do
 
   describe 'instance methods' do
     describe '#plants_less_than_hundred' do
-      it 'returns a unique collection of plants that have less than 100 days to harvest' do
+      it 'returns a unique collection of plants that have less than 100 days to harvest ordered by the number of time the plant appears in garden plots' do
         garden = Garden.create!(name: 'Eldo Community Garden', organic: true)
         plot1 = garden.plots.create!(number: 1, size: 'Large', direction: 'North')
         plant1 = Plant.create!(name: 'Tomato', description: 'Tasty', days_to_harvest: 115)
@@ -23,7 +23,7 @@ RSpec.describe Garden do
 
         expected = [plant2.name, plant3.name]
 
-        expect(garden.plants_less_than_hundred).to eq(expected.sort)
+        expect(garden.plant_names_less_than_hundred).to eq(expected)
       end
     end
   end
