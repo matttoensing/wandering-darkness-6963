@@ -21,9 +21,9 @@ RSpec.describe Garden do
         plot_plant4 = PlotPlant.create!(plot: plot2, plant: plant3)
         plot_plant5 = PlotPlant.create!(plot: plot2, plant: plant4)
 
-        expected = [plant2.name, plant3.name]
+        expected = [plant3.name, plant2.name]
 
-        expect(garden.plant_names_less_than_hundred).to eq(expected.sort)
+        expect(garden.plant_names_less_than_hundred).to eq(expected)
       end
     end
   end
