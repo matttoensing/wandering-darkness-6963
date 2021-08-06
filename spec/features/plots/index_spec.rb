@@ -52,21 +52,13 @@ RSpec.describe 'plots index page' do
       expect(page).to have_content(@plant1.name)
 
       within "#plant-#{@plant1.id}" do
-        click_link 'Remove Plant from Plot'
+        click_on 'Remove Plant from Plot'
       end
-
+    
       expect(current_path).to eq('/plots')
       expect(page).to_not have_content(@plant1.name)
       expect(page).to have_content(@plant2.name)
       expect(page).to have_content(@plant3.name)
-      # As a visitor
-      # When I visit a plot's index page
-      # Next to each plant's name
-      # I see a link to remove that plant from that plot
-      # When I click on that link
-      # I'm returned to the plots index page
-      # And I no longer see that plant listed under that plot
-      # (Note: you should not destroy the plant record entirely)
     end
   end
 end
