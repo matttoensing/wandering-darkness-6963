@@ -1,0 +1,13 @@
+<h1>Plots Page</h1>
+
+<% @plots.each do |plot| %>
+  <div id="plot-<%= plot.id %>">
+  <p>Plot Number: <%= plot.number %></p>
+  <% plot.plants.each do |plant| %>
+    <p>Plant Name: <%= plant.name %></p>
+    <div id="plant-<%= plant.id %>">
+      <%= link_to 'Remove Plant from Plot' %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
