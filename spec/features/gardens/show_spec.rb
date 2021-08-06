@@ -24,11 +24,18 @@ RSpec.describe 'garden show page' do
       expect(page).to_not have_content(@plant4.name)
       expect(page).to have_content(@plant2.name, count: 1)
       expect(page).to have_content(@plant3.name)
+    end
+  end
+
+  describe 'plants sorted on page' do
+    it 'visitor sees plants sorted by the number of plants that appear in any of that gardens plots from most to least' do
+      visit garden_path(@garden.id)
+
+      expect(@plant2.name).to appear_before(@plant3.name)
 # As a visitor
-# When I visit a garden's show page
-# Then I see a list of plants that are included in that garden's plots
-# And I see that this list is unique (no duplicate plants)
-# And I see that this list only includes plants that take less than 100 days to harvest
+# When I visit a garden's show page,
+# Then I see the list of plants is sorted by the number of plants that appear in any of that garden's plots from most to least
+# (Note: you should only make 1 database query to retrieve the sorted list of plants)
 
     end
   end
