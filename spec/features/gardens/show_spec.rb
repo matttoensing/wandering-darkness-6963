@@ -18,7 +18,7 @@ RSpec.describe 'garden show page' do
 
   describe 'content' do
     it 'visitor sees a unique list of plants that are included in that gardens plots which take less than 100 days to harvest' do
-      visit "/gardens/#{@garden.id}"
+      visit garden_path(@garden.id)
 
       expect(page).to_not have_content(@plant1.name)
       expect(page).to_not have_content(@plant4.name)
