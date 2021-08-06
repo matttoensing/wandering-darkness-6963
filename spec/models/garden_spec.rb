@@ -23,7 +23,7 @@ RSpec.describe Garden do
 
         expected = [plant2.name, plant3.name]
 
-        expect(garden.plant_names_less_than_hundred).to eq(expected)
+        expect(garden.plant_names_less_than_hundred).to eq(expected.sort)
       end
     end
   end
